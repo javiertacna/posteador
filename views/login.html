@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+
+<title>Trabajo</title>
+
+<!--META-->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Login Form</title>
+
+<!--STYLESHEETS-->
+<link href="/stylesheets/style_login.css" rel="stylesheet" type="text/css" />
+
+<!--SCRIPTS-->
+<script type="text/javascript" src="javascripts/jquery_login.js"></script>
+<!--Slider-in icons-->
+<script type="text/javascript">
+$(document).ready(function() {
+	$(".username").focus(function() {
+		$(".user-icon").css("left","-48px");
+	});
+	$(".username").blur(function() {
+		$(".user-icon").css("left","0px");
+	});
+
+	$(".password").focus(function() {
+		$(".pass-icon").css("left","-48px");
+	});
+	$(".password").blur(function() {
+		$(".pass-icon").css("left","0px");
+	});
+});
+</script>
+
+
+</head>
+<body>
+
+<!--WRAPPER-->
+<div id="wrapper">
+
+	<!--SLIDE-IN ICONS-->
+    <div class="user-icon"></div>
+    <div class="pass-icon"></div>
+    <!--END SLIDE-IN ICONS-->
+
+<!--LOGIN FORM-->
+<form name="login-form" class="login-form" action="control" method="post">
+
+	<!--HEADER-->
+    <div class="header">
+    <!--TITLE--><h1>Inicia Sesión</h1><!--END TITLE-->
+    <!--DESCRIPTION-->
+
+          <span>Ingrese su Usuario y Contraseña, si no dispone de esta solicitela a: alverit2004@hotmail.com</span>
+   <!--END DESCRIPTION-->
+    </div>
+    <!--END HEADER-->
+
+	<!--CONTENT-->
+    <div class="content">
+	<!--USERNAME--><input name="usuario_Txt" id="usuario_Txt" type="text" class="input username" placeholder="Usuario"  autocomplete="off" onfocus="this.value=''" /><!--END USERNAME-->
+    <!--PASSWORD--><input name="password_Txt" id="password_Txt" type="password" class="input password" placeholder="Password"  autocomplete="off" onfocus="this.value=''" /><!--END PASSWORD-->
+    </div>
+    <!--END CONTENT-->
+
+    <!--FOOTER-->
+    <div class="footer">
+    <!--LOGIN BUTTON--><input type="submit" name="submit" value="Login" class="button" /><!--END LOGIN BUTTON-->
+
+    <a href="/registrando" class="register" style=" text-decoration:none; " >Registrarse</a>
+    </div>
+    <!--END FOOTER-->
+
+</form>
+<!--END LOGIN FORM-->
+
+</div>
+<!--END WRAPPER-->
+
+<!--GRADIENT--><div class="gradient"></div><!--END GRADIENT-->
+
+
+
+</body>
+</html>

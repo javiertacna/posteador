@@ -1,0 +1,77 @@
+{% extends 'layout.html' %}
+
+{% block title %}Trabajo{% endblock %}
+
+{% block head %}
+	<script type="text/javascript" src="javascripts/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="javascripts/face.js"></script>
+
+	<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+	<script type="text/javascript" src="javascripts/main.js"></script>
+	<link href="stylesheets/jquery-ui.css" rel="stylesheet">
+	<script type="text/JavaScript" src="javascripts/jquery-ui.js" ></script>
+{% endblock %}
+
+{% block content %}
+	<div id="blueBar" style="padding-top: 0px;background-color:#228a62;margin-top:0px;padding-left:0px;height="50px;">
+		<table style="width:100%" class="letra_titulo" >
+			<tr>
+				<td width="20%">&nbsp;</td>
+				<td width="30%"><img src="../images/logo.png"></td>
+				<td align="left"><div style="align:middle; ">{{user}}</div></td>
+				<td>Inicio</td>
+				<td>
+					<div id='me_gusta'>
+						<img src="../images/mundo.png" width="35" height="30">
+						<span id='me_gusta_contador'></span>
+					</div>
+				</td>
+				<td>Salir</td>
+				<td width="20%">&nbsp;</td>
+			</tr>
+		</table>
+	</div>
+	<div id="amigos" ></div>
+
+
+	<form method="POST" action="/nuevo_mensaje_publico" name="mensaje_publico" id="mensaje_publico" style="margin-left:30%;margin-top:10px;">
+		<input type="text" id="i" name="i" value="1" style='display:none;'>
+		<div>Actualizar estado</div>
+		<div>
+			<textarea id="postear_mensaje" name="postear_mensaje" rows="3" placeholder="¿Qué estás pensando?"  title="¿Qué estás pensando?" style="width:50%;display:block;" ></textarea>
+			<input type="button" onClick="
+				var valor_i= document.getElementById('i').value;
+				cargar_publico('/nuevo_mensaje_publico','{{user_id}}',valor_i);
+				document.getElementById('postear_mensaje').value='';
+			" value="Publicar" style="
+				background-color: red;color:white; border-style: solid;border-color: red;margin-top:5px;padding-top:5px;padding-bottom:5px;">
+		</div>
+		<div id="panel_posts">
+
+		</div>
+	</form>
+	<div id="panel_izquierdo" class="lado_izq">
+		<ul id="users">
+
+		</ul>
+	</div>
+	<div id="panel_contactos" class="amigos">
+		<ul id="users">
+
+		</ul>
+	</div>
+
+
+	<form method="POST" action="/nuevo_mensaje" name="mensaje" id="mensaje">
+		<input type="hidden" id="usuario_id" name="usuario_id" value="{{user_id}}">
+		<!--	<input type="button" onclick="alert(document.getElementById('txt_conversacion1').value)" > -->
+
+		<div id="panel_footer" >
+			<!--<input type="button" onclick="
+				var men=document.getElementById('txt_conversacion1').value;
+				cargar('/nuevo_mensaje', 'div_body1');
+			">-->
+		</div>
+	</form>
+{% endblock %}
+
